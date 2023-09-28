@@ -10,14 +10,15 @@ a {
 #Like__control, #Like__control1, #Like__control2, #Like__control3 {
   display: none;
 }
-#Like__control + .Like__btn, #Like__control1 + .Like__btn, #Like__control2 + .Like__btn, #Like__control3 + .Like__btn {
-  width: 22px;
-  height: 22px;
-  background: url(../images/Like.svg);
-}
 #Like__control:checked + .Like__btn, #Like__control1:checked + .Like__btn, #Like__control2:checked + .Like__btn, #Like__control3:checked + .Like__btn {
   height: 21px;
   background: url(../images/Like-activated.svg);
+}
+
+.Like__btn {
+  width: 22px;
+  height: 22px;
+  background: url(../images/Like.svg);
 }
 
 .header {
@@ -436,6 +437,10 @@ a {
 }
 .restaurants__div .restaurants__section .restaurants__card--bottom .Like__btn {
   margin-right: 33px;
+}
+.restaurants__div .restaurants__section .restaurants__card--bottom .Like__btn:hover {
+  background: url(../images/Like-activated.svg);
+  height: 21px;
 }
 
 .footer {
