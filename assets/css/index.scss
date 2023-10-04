@@ -18,18 +18,61 @@ a {
   all: unset;
 }
 
-#Like__control {
-  &,
-  &1,
-  &2,
-  &3 {
-    display: none;
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
 
-    &:checked {
-      + .Like__btn {
-        height: 21px;
-        background: $Like__activated;
-      }
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loaderFadeIn {
+  50% {
+    opacity: 1;
+  }
+
+  100%{
+    opacity: 0;
+    display: none;
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  animation: loaderFadeIn 2s forwards;
+
+  .circle {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    border: 5px solid $primary-color;
+    border-top: 5px solid transparent;
+    animation: rotate 1s linear infinite;
+  }
+}
+
+#Like__control {
+  display: none;
+
+  &:checked {
+    + .Like__btn {
+      height: 21px;
+      background: $Like__activated;
     }
   }
 }
@@ -120,69 +163,84 @@ a {
     }
 
     .Meal__info {
-      display: flex;
-      align-items: end;
-      padding: 13.5px 0 13.5px 15px;
-      height: 42px;
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      overflow: hidden;
+      animation: fadeIn 1s ease forwards;
 
-      &:hover {
-        .Check__div {
-          margin-right: 0;
-
-          .Check__logo {
-            display: initial;
-          }
-        }
+      &--2 {
+        animation: fadeIn 1s ease 0.3s forwards;
       }
 
-      .Meal__description {
+      &--3 {
+        animation: fadeIn 1s ease 0.6s forwards;
+      }
+
+      &,
+      &--2,
+      &--3 {
+        opacity: 0;
         display: flex;
-        justify-content: space-between;
-        flex-direction: column;
-        margin-right: auto;
-        gap: 2px;
+        align-items: end;
+        padding: 13.5px 0 13.5px 15px;
+        height: 42px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         overflow: hidden;
 
-        .Meal__name {
-          font-size: 18px;
-          font-weight: 600;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+        &:hover {
+          .Check__div {
+            margin-right: 0;
+
+            .Check__logo {
+              display: initial;
+            }
+          }
         }
 
-        .Meal__ingredient {
+        .Meal__description {
+          display: flex;
+          justify-content: space-between;
+          flex-direction: column;
+          margin-right: auto;
+          gap: 2px;
+          overflow: hidden;
+
+          .Meal__name {
+            font-size: 18px;
+            font-weight: 600;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+          .Meal__ingredient {
+            font-size: 15px;
+            font-weight: 400;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+
+        .Meal__price {
           font-size: 15px;
-          font-weight: 400;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          font-weight: 600;
+          margin-right: 15px;
+          margin-left: 5px;
+          justify-self: end;
         }
-      }
 
-      .Meal__price {
-        font-size: 15px;
-        font-weight: 600;
-        margin-right: 15px;
-        margin-left: 5px;
-        justify-self: end;
-      }
-
-      .Check__div {
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        align-self: center;
-        height: 69px;
-        width: 59px;
-        margin-right: -59px;
-        background-color: $light-green;
-        transition: all ease-out 250ms;
+        .Check__div {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          align-self: center;
+          height: 69px;
+          width: 59px;
+          margin-right: -59px;
+          background-color: $light-green;
+          transition: all ease-out 250ms;
+        }
       }
     }
   }
