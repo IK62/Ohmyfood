@@ -39,7 +39,7 @@ a {
     opacity: 1;
   }
 
-  100%{
+  100% {
     opacity: 0;
     display: none;
   }
@@ -66,21 +66,11 @@ a {
   }
 }
 
-#Like__control {
-  display: none;
-
-  &:checked {
-    + .Like__btn {
-      height: 21px;
-      background: $Like__activated;
-    }
-  }
-}
-
 .Like__btn {
-  width: 22px;
+  width: 25px;
   height: 22px;
-  background: url(../images/Like.svg);
+  background-image: url(../images/Like.svg);
+  background-repeat: no-repeat;
 }
 
 .header {
@@ -138,6 +128,10 @@ a {
 
     .Like__btn {
       margin-right: 24px;
+
+      &:hover {
+        background-image: $Like__activated;
+      }
     }
   }
 
@@ -567,8 +561,7 @@ a {
           margin-right: 33px;
 
           &:hover {
-            background: $Like__activated;
-            height: 21px;
+            background-image: $Like__activated;
           }
         }
       }

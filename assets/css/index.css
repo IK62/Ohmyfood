@@ -49,18 +49,11 @@ a {
   animation: rotate 1s linear infinite;
 }
 
-#Like__control {
-  display: none;
-}
-#Like__control:checked + .Like__btn {
-  height: 21px;
-  background: url(../images/Like-activated.svg);
-}
-
 .Like__btn {
-  width: 22px;
+  width: 25px;
   height: 22px;
-  background: url(../images/Like.svg);
+  background-image: url(../images/Like.svg);
+  background-repeat: no-repeat;
 }
 
 .header {
@@ -119,6 +112,9 @@ a {
 }
 .Menu__div .Menu__topbar .Like__btn {
   margin-right: 24px;
+}
+.Menu__div .Menu__topbar .Like__btn:hover {
+  background-image: url(../images/Like-activated.svg);
 }
 .Menu__div .Meal__div {
   display: flex;
@@ -491,8 +487,7 @@ a {
   margin-right: 33px;
 }
 .restaurants__div .restaurants__section .restaurants__card--bottom .Like__btn:hover {
-  background: url(../images/Like-activated.svg);
-  height: 21px;
+  background-image: url(../images/Like-activated.svg);
 }
 
 .footer {
